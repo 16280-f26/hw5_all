@@ -21,20 +21,15 @@ public:
   SyncNode()
   : Node("sync_node")  // Initialize node with the name "sync_node"
   {
+    // ------------ TBD --------------
     // Create a message_filters::Subscriber for IMU topic
     // Use rmw_qos_profile_sensor_data for low-latency, best-effort delivery
-    imu_sub_ = std::make_shared<message_filters::Subscriber<sensor_msgs::msg::Imu>>(
-      this,               
-      "/imu",             // topic name changed to /imu
-      rmw_qos_profile_sensor_data // QoS profile
-    );
+    imu_sub_ = ...; // subscription to /imu using rmw_qos_profile_sensor_data QoS
 
     // Create a message_filters::Subscriber for Odometry topic
-    odom_sub_ = std::make_shared<message_filters::Subscriber<nav_msgs::msg::Odometry>>(
-      this,               
-      "/odom",            // topic name
-      rmw_qos_profile_sensor_data // same QoS as imu
-    );
+    odom_sub_ = ...; // subscription to /odom using rmw_qos_profile_sensor_data
+
+    // ------------- TBD END -----------------
 
     // Define the approximate time policy with a queue size of 10
     // This allows the synchronizer to match messages with slightly different timestamps
