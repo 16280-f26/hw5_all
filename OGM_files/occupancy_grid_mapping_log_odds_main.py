@@ -25,7 +25,7 @@ Parts of this assignment depends on HW5a solutions
 --- TBD --- indicates the section to fill out   
 ... indicates the specific place to type the code
 
-There are 8 TBD sections
+There are 9 TBD sections
 
 """
 
@@ -248,19 +248,9 @@ class PauseAndCapture(Node):
         """
         Publish the merged point cloud
         """
-        header = Header()
-        header.stamp = stamp
-        header.frame_id = "map"
-
-        fields = [
-            PointField(name="x", offset=0, datatype=PointField.FLOAT32, count=1),
-            PointField(name="y", offset=4, datatype=PointField.FLOAT32, count=1),
-            PointField(name="z", offset=8, datatype=PointField.FLOAT32, count=1),
-        ]
-
-        cloud_msg = pc2.create_cloud(header, fields, self.accumulated_points)
-        self.pc_pub.publish(cloud_msg)
-        self.get_logger().info("Published accumulated cloud.")
+        # -------------- TBD -------------
+        ... # create a point cloud using pc2.create_cloud
+        # ----------------- TBD END ---------------
 
     def world_to_map(self, x, y):
         """
